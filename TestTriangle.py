@@ -5,7 +5,7 @@ __author__ = "Sai Chaitanya"
 
 import unittest
 
-from hw2.Triangle import classifyTriangle
+from Triangle import classifyTriangle
 
 class TestTriangles(unittest.TestCase):
     """
