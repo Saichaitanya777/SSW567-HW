@@ -11,9 +11,26 @@ jobs:
       - run: 
           command: |
             pip install pytest
+            cd hw2
             pytest --junitxml=test-results/junit.xml TestTriangle.py
+
+      # For GitHub API tests
+      - run:
+          name: "Installing Git API Dependencies"
+          command: |
+            pip install pytest requests
+      - run:
+          name: "Run Git API Tests"
+          command: |
+            cd GitHubApi567-hw4a/
+            pytest --junitxml=test-results-github-api/junit.xml test_git_api.py
+
+
+      # Store test results
       - store_test_results:
-          path: test-results
+          path: test-results-triangle
+      - store_test_results:
+          path: test-results-git-api
 
 workflows:
   testing_triangles:
